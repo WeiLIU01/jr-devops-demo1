@@ -12,7 +12,7 @@ jobs:
     
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -30,7 +30,7 @@ jobs:
     - name: Deploy via Azure CLI
       run: |
         az storage blob upload-batch \
-          --account-name jrdemohelloworld \
+          --account-name jrdevopsstrageaccount \
           --account-key ${{ secrets.AZURE_STORAGE_KEY }} \
           --destination '$web' \
           --source ./frontend/dist \
